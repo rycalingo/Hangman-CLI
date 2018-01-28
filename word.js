@@ -15,12 +15,11 @@ const CurrentWord = function () {
     this.limit = 10;
     this.missed = 0;
     this.guessChar = [];
-
     
     this.charList.forEach( (char)=> {
         var Char = new letter.Char(char);
         if ( char !== ' ' ) {
-            this.guessChar.push( Char.check() );
+            this.guessChar.push( Char );
         }
         else {
             this.guessChar.push(' ');
@@ -31,13 +30,14 @@ const CurrentWord = function () {
 
 CurrentWord.prototype.DisplayChar = function() {
     let result = '\n\n';
-    this.guessChar.forEach( (char) => {
-        result += char !== ' ' ? char + ' '  : '  ';
+    this.guessChar.forEach( (char, i) => {
+        result += this.guessChar[i].check(char);
     });
     console.log(result + '\n');
+};
+CurrentWord.prototype.Update = function(char, i) {
 
-  };
-
+}
 module.exports = {
     CurrentWord: CurrentWord
 };
