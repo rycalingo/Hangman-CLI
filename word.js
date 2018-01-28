@@ -12,8 +12,7 @@ const CurrentWord = function () {
     let rWord = wordList[rNum].toUpperCase();
 
     this.charList = [...rWord];
-    this.limit = 10;
-    this.missed = 0;
+    this.guesses = 10;
     this.guessChar = [];
     
     this.charList.forEach( (char)=> {

@@ -9,13 +9,16 @@ const hangMan = (function() {
 
 	// create new word to guess
 	let mysteryWord = new word.CurrentWord();
-	// console.log(mysteryWord.charList);
-
+	console.log(mysteryWord.guessChar);
+	console.log('\n~~~~~~~~~~~~~~~~~~~~\n')
+	console.log("HANGMAN GAME")
+	console.log('\n~~~~~~~~~~~~~~~~~~~~')
 	mysteryWord.DisplayChar();
 
+	// game prompt logic
 	const guessTheWord = function() {
 
-		if (mysteryWord.missed < mysteryWord.limit) {
+		if (mysteryWord.guesses < 0) {
 
 			inquirer.prompt([
 			  {
@@ -45,8 +48,10 @@ const hangMan = (function() {
 					console.log('\nCORRECT!!!');
 					charFound = false;
 				}else {
+					mysteryWord.guesses--;
 					console.log('\nMISSED!!!');
-					mysteryWord.missed--;
+					console.log('\n' + mysteryWord.missed + ' Guess Remaining');
+					
 				}
 
 				console.log(view + '\n');
