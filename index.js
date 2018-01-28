@@ -67,8 +67,9 @@ const hangMan = (function() {
 				  message: 'Play Again? ',
 				  choices: [ 'Yes', 'No']
 				}
-			  ]).then(function(game) {
+			  ]).then(function(res) {
 			  // restart logic
+			  console.log(res.replay);
 			});
 		}
 
