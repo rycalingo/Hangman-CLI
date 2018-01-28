@@ -9,7 +9,7 @@ const hangMan = (function() {
 
 	// create new word to guess
 	let mysteryWord = new word.CurrentWord();
-	console.log(mysteryWord.charList);
+	// console.log(mysteryWord.charList);
 
 	mysteryWord.DisplayChar();
 
@@ -19,8 +19,8 @@ const hangMan = (function() {
 
 			inquirer.prompt([
 			  {
-				name: "char",
-				message: "Guess a letter? "
+				name: 'char',
+				message: 'Guess a letter? '
 			  }
 			]).then(function(guess) {
 				let guessL = guess.char.toUpperCase();
@@ -57,12 +57,14 @@ const hangMan = (function() {
 		}else {
 			inquirer.prompt([
 				{
-				  type: "list",
-				  name: "char",
-				  message: "Play Again? ",
-				  choices: [ Yes, No]
+				  type: 'list',
+				  name: 'replay',
+				  message: 'Play Again? ',
+				  choices: [ 'Yes', 'No']
 				}
-			  ]).then(function(guess) {
+			  ]).then(function(game) {
+			  // restart logic
+			});
 		}
 
 	};
