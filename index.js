@@ -22,14 +22,12 @@ const hangMan = (function() {
 				message: "Guess a letter? "
 			  }
 			]).then(function(guess) {
+				let guessL = guess.char.toUpperCase();
+				let view = '\n\n';
 				mysteryWord.guessChar.forEach( (char, i)=> {
-					if ( char.letter === guess.char.toUpperCase() ) {
-
-					}else {
-						
-					};
+					temp = char.check(guessL);
 				});
-				
+				console.log(view + '\n');
 				
 				guessTheWord();
 			});

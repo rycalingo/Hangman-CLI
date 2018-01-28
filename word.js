@@ -36,7 +36,7 @@ CurrentWord.prototype.DisplayChar = function() {
     console.log(result + '\n');
 };
 CurrentWord.prototype.Update = function(char, i) {
-
+    this.guessChar[i] = this.guessChar[i].check(char);
 }
 module.exports = {
     CurrentWord: CurrentWord
