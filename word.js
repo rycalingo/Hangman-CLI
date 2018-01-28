@@ -25,13 +25,12 @@ const CurrentWord = function () {
             this.guessChar.push(' ');
         }
     });
-    // console.log(this);
 };
 
 CurrentWord.prototype.DisplayChar = function() {
     let result = '\n\n';
     this.guessChar.forEach( (char, i) => {
-        result += this.guessChar[i].check(char);
+        result += char.check(char);
     });
     console.log(result + '\n');
 };

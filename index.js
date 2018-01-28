@@ -9,10 +9,11 @@ const hangMan = (function() {
 
 	// create new word to guess
 	let mysteryWord = new word.CurrentWord();
-	
+	console.log(mysteryWord.charList);
+
+	mysteryWord.DisplayChar();
+
 	const guessTheWord = function() {
-		
-		mysteryWord.DisplayChar();
 
 		if (mysteryWord.missed < mysteryWord.limit) {
 
@@ -25,7 +26,7 @@ const hangMan = (function() {
 				let guessL = guess.char.toUpperCase();
 				let view = '\n\n';
 				mysteryWord.guessChar.forEach( (char, i)=> {
-					temp = char.check(guessL);
+					view += char.check(guessL);
 				});
 				console.log(view + '\n');
 				
