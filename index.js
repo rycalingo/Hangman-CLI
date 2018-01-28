@@ -2,7 +2,7 @@
 
 const inquirer = require('inquirer');
 const word = require('./word.js');
-const letter = require('./letter.js');
+
 
 const hangMan = (function() {
 
@@ -11,9 +11,9 @@ const hangMan = (function() {
     
     const guessTheWord = function() {
         
-        console.log(mysteryWord.DisplayChar( ));
+        mysteryWord.DisplayChar();
 
-        if (mysteryWord.guessWrong < mysteryWord.guessLimit) {
+        if (mysteryWord.missed < mysteryWord.limit) {
 
             inquirer.prompt([
               {
@@ -22,8 +22,7 @@ const hangMan = (function() {
               }
             ]).then(function(guess) {
     
-                // if ( )
-                mysteryWord.guessWrong++;
+                mysteryWord.missed++;
                 guessTheWord();
             });
 

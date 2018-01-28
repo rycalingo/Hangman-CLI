@@ -5,7 +5,7 @@ const Char = function(char) {
 };
 
 Char.prototype.check = function(char) {
-  return this.letter === char ? char : '_ ';
+  return this.letter === char ? this.letter : '_ ';
 };
 
 module.exports = {Char: Char};
