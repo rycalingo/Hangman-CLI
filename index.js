@@ -25,24 +25,44 @@ const hangMan = (function() {
 			]).then(function(guess) {
 				let guessL = guess.char.toUpperCase();
 				let view = '\n\n';
+				let charFound = false;
+				
 				mysteryWord.guessChar.forEach( (char, i)=> {
-					if ( char.isGuessed ) {
+					if (char.letter === guessL) {
+						charFound = true;
+						char.isGuessed = true;
 						view += char.print();
 
 					}else
-					if (char.letter === guessL) {
-						char.isGuessed = true;
+					if ( char.isGuessed ) {
 						view += char.print();
 
 					}else {
 						view += char.print();
 					}
 				});
+				if (charFound) {
+					console.log('\nCORRECT!!!');
+					charFound = false;
+				}else {
+					console.log('\nMISSED!!!');
+					mysteryWord.missed--;
+				}
+
 				console.log(view + '\n');
 				
 				guessTheWord();
 			});
 
+		}else {
+			inquirer.prompt([
+				{
+				  type: "list",
+				  name: "char",
+				  message: "Play Again? ",
+				  choices: [ Yes, No]
+				}
+			  ]).then(function(guess) {
 		}
 
 	};
