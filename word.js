@@ -30,12 +30,12 @@ const CurrentWord = function () {
 CurrentWord.prototype.DisplayChar = function() {
     let result = '\n\n';
     this.guessChar.forEach( (char, i) => {
-        result += char.check(char);
+        result += char !== ' ' ? char.print() : ' ';
     });
     console.log(result + '\n');
 };
 CurrentWord.prototype.Update = function(char, i) {
-    this.guessChar[i] = this.guessChar[i].check(char);
+    this.guessChar[i] = char.print();
 }
 module.exports = {
     CurrentWord: CurrentWord

@@ -26,7 +26,17 @@ const hangMan = (function() {
 				let guessL = guess.char.toUpperCase();
 				let view = '\n\n';
 				mysteryWord.guessChar.forEach( (char, i)=> {
-					view += char.check(guessL);
+					if ( char.isGuessed ) {
+						view += char.print();
+
+					}else
+					if (char.letter === guessL) {
+						char.isGuessed = true;
+						view += char.print();
+
+					}else {
+						view += char.print();
+					}
 				});
 				console.log(view + '\n');
 				

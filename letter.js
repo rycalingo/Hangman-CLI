@@ -5,8 +5,7 @@ const Char = function(char) {
   this.isGuessed = false;
 };
 
-Char.prototype.check = function(v) {
-  this.isGuessed = v | false;
+Char.prototype.print = function() {
   return this.isGuessed ? this.letter : '_ ';
 };
 
