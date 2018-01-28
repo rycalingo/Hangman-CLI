@@ -20,7 +20,7 @@ const CurrentWord = function () {
     this.charList.forEach( (char)=> {
         var Char = new letter.Char(char);
         if ( char !== ' ' ) {
-            this.guessChar.push( Char.check(char) );
+            this.guessChar.push( Char.check() );
         }
         else {
             this.guessChar.push(' ');
@@ -34,8 +34,7 @@ CurrentWord.prototype.DisplayChar = function() {
     this.guessChar.forEach( (char) => {
         result += char !== ' ' ? char + ' '  : '  ';
     });
-
-    console.log(this.guessChar );
+    console.log(result + '\n');
 
   };
 

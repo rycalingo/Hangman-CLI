@@ -2,6 +2,7 @@
 
 const inquirer = require('inquirer');
 const word = require('./word.js');
+const letter = require('./letter.js');
 
 
 const hangMan = (function() {
