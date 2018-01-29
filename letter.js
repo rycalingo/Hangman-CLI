@@ -6,7 +6,8 @@ const Char = function(char) {
 };
 
 Char.prototype.print = function() {
-  return this.isGuessed ? this.letter : '_ ';
+  // if this.isGuessed is 'true' return a letter
+  return this.isGuessed ? this.letter + ' ' : '_ ';
 };
 
 module.exports = {Char: Char};

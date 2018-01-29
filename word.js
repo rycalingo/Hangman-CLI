@@ -15,7 +15,7 @@ const CurrentWord = function () {
     this.guesses = 10;
     this.guessChar = [];
     
-    this.charList.forEach( (char)=> {
+    this.charList.forEach((char)=> {
         var Char = new letter.Char(char);
         if ( char !== ' ' ) {
             this.guessChar.push( Char );
@@ -28,9 +28,12 @@ const CurrentWord = function () {
 
 CurrentWord.prototype.DisplayChar = function() {
     let result = '\n\n';
-    this.guessChar.forEach( (char, i) => {
+    this.guessChar.forEach((char, i) => {
         result += char !== ' ' ? char.print() : ' ';
     });
+	console.log('\n~~~~~~~~~~~~~~~~~~~~\n');
+	console.log("HANGMAN GAME")
+	console.log('\n~~~~~~~~~~~~~~~~~~~~');
     console.log(result + '\n');
 };
 CurrentWord.prototype.Update = function(char, i) {
